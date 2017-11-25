@@ -41,3 +41,21 @@ from collections import namedtuple
 City = namedtuple('City', 'name country population coordinates')
 
 tokyo = City('Tokyo', 'JP', 33.933, (35.689722, 139.691667))
+moscow = City('Moscow', 'RUS', 12.228, (55.75, 37.616667))
+
+# useful methods
+
+# ._fields(), ._make(). ._asdict()
+
+City._fields  # tuple with the field names of the class
+
+LatLong = namedtuple('LatLong', 'lat long')
+
+delhi_data = ('Delhi NCR', 'IN', 21.935, LatLong(28.613889, 77.208889))
+
+delhi = City._make(delhi_data)  # or City(*delhi_data)
+
+delhi._asdict()
+
+for key, value in delhi._asdict().items():
+    print(key + ':', value)
